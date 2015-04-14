@@ -1,0 +1,6 @@
+framework module SocaCrypto {
+  umbrella header "Pods-SocaCoreOSX-SocaCrypto-umbrella.h"
+
+  export *
+  module * { export * }
+}

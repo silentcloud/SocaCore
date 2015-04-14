@@ -1,0 +1,47 @@
+PODS:
+  - CocoaLumberjack (2.0.0):
+    - CocoaLumberjack/Default (= 2.0.0)
+    - CocoaLumberjack/Extensions (= 2.0.0)
+  - CocoaLumberjack/Core (2.0.0)
+  - CocoaLumberjack/Default (2.0.0):
+    - CocoaLumberjack/Core
+  - CocoaLumberjack/Extensions (2.0.0):
+    - CocoaLumberjack/Default
+  - MagicalRecord (2.2):
+    - MagicalRecord/Core (= 2.2)
+  - MagicalRecord/Core (2.2)
+  - Nimble (0.4.2)
+  - Quick (0.3.1)
+  - SocaCore (0.1.0):
+    - CocoaLumberjack (~> 2.0.0)
+    - MagicalRecord
+    - SocaCrypto (~> 0.1.0)
+  - SocaCrypto (0.1.1)
+
+DEPENDENCIES:
+  - Nimble
+  - Quick
+  - SocaCore (from `../`)
+  - SocaCrypto (from `https://github.com/zhuhaow/SocaCrypto.git`, tag `0.1.1`)
+
+EXTERNAL SOURCES:
+  SocaCore:
+    :path: "../"
+  SocaCrypto:
+    :git: https://github.com/zhuhaow/SocaCrypto.git
+    :tag: 0.1.1
+
+CHECKOUT OPTIONS:
+  SocaCrypto:
+    :git: https://github.com/zhuhaow/SocaCrypto.git
+    :tag: 0.1.1
+
+SPEC CHECKSUMS:
+  CocoaLumberjack: a6f77d987d65dc7ba86b0f84db7d0b9084f77bcb
+  MagicalRecord: f8a56bb87ab6552f20c4bb8681a1958a197ea3cd
+  Nimble: 49b7a7da8919f42823d37c6d68cc6d15a7009f32
+  Quick: 824572d3d198d51e52cf4aa722cebf7e59952a35
+  SocaCore: 05ccf3ce683e1bf0017617615625d3cb47a905d1
+  SocaCrypto: dc092cae2ae0031133726325a9243f0028d63c36
+
+COCOAPODS: 0.36.3

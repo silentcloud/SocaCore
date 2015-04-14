@@ -1,38 +1,22 @@
-#
-# Be sure to run `pod lib lint SocaCore.podspec' to ensure this is a
-# valid spec and remove all comments before submitting the spec.
-#
-# Any lines starting with a # are optional, but encouraged
-#
-# To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html
-#
-
 Pod::Spec.new do |s|
   s.name             = "SocaCore"
   s.version          = "0.1.0"
-  s.summary          = "A short description of SocaCore."
+  s.summary          = "The core of Soca."
   s.description      = <<-DESC
-                       An optional longer description of SocaCore
-
-                       * Markdown format.
-                       * Don't worry about the indent, we strip it!
+                       Everything backs up Soca.
                        DESC
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/SocaCore"
-  # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
+  s.homepage         = "https://github.com/zhuhaow/SocaCore"
   s.license          = 'MIT'
   s.author           = { "Zhuhao Wang" => "zhuhaow@gmail.com" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/SocaCore.git", :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.source           = { :git => "https://github.com/zhuhaow/SocaCore.git", :tag => s.version.to_s }
 
-  s.platform     = :ios, '7.0'
   s.requires_arc = true
 
-  s.source_files = 'Pod/Classes/**/*'
-  s.resource_bundles = {
-    'SocaCore' => ['Pod/Assets/*.png']
-  }
+  s.source_files = 'Pod/Classes/**/*.{h,m,swift}'
+  s.resources = ['Pod/Classes/*.xcdatamodeld']
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.frameworks = 'Foundation', 'CoreData'
+  s.dependency 'SocaCrypto', '~> 0.1.0'
+  s.dependency 'CocoaLumberjack', '~> 2.0.0'
+  s.dependency 'MagicalRecord'
 end
