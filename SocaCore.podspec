@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "SocaCore"
-  s.version          = "0.1.0"
+  s.version          = "0.2.0"
   s.summary          = "The core of Soca."
   s.description      = <<-DESC
                        Everything backs up Soca.
@@ -17,6 +17,6 @@ Pod::Spec.new do |s|
 
   s.frameworks = 'Foundation', 'CoreData'
   s.dependency 'SocaCrypto', '~> 0.1.0'
-  s.dependency 'CocoaLumberjack', '~> 2.0.0'
+  s.dependency 'XCGLogger', '~> 2.0.0'
   s.dependency 'MagicalRecord'
 end

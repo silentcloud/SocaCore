@@ -1,8 +1,8 @@
 {
   "name": "SocaCore",
   "version": "0.1.0",
-  "summary": "A short description of SocaCore.",
-  "description": "                       An optional longer description of SocaCore\n\n                       * Markdown format.\n                       * Don't worry about the indent, we strip it!\n",
+  "summary": "The core of Soca.",
+  "description": "                       Everything backs up Soca.\n",
   "homepage": "https://github.com/zhuhaow/SocaCore",
   "license": "MIT",
   "authors": {
@@ -25,7 +25,7 @@
     "SocaCrypto": [
       "~> 0.1.0"
     ],
-    "CocoaLumberjack": [
+    "XCGLogger": [
       "~> 2.0.0"
     ],
     "MagicalRecord": [
