@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "SocaCore"
-  s.version          = "0.2.0"
+  s.version          = "0.3.0"
   s.summary          = "The core of Soca."
   s.description      = <<-DESC
                        Everything backs up Soca.
