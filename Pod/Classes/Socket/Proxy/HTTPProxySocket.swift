@@ -7,8 +7,6 @@
 //
 
 import Foundation
-import CocoaLumberjack
-//import CocoaLumberjackSwift
 
 class HTTPProxySocket : ProxySocket {
     enum HTTPMethod : String {
@@ -50,7 +48,7 @@ class HTTPProxySocket : ProxySocket {
                 let hostPort = _url.componentsSeparatedByString(":")
                 let _host = hostPort[0]
                 let _port = hostPort[1].toInt()!
-                DDLogInfo("Recieved HTTP CONNECT request to \(_host):\(_port)")
+                Setup.getLogger().info("Recieved HTTP CONNECT request to \(_host):\(_port)")
                 var request = ConnectMessage(host: _host, port: _port, method: .HTTP_CONNECT)
                 request.httpProxyRawHeader = data
                 self.connectRequest = request

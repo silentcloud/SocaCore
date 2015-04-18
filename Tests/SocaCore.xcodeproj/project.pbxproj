@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1EE58662EBCAAB86BD7B9C52 /* Pods_SocaCoreOSX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFE4F3D4005180457D5B6BF8 /* Pods_SocaCoreOSX.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		3630174A1AE27D1E00A2BECF /* APNSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363017491AE27D1E00A2BECF /* APNSpec.swift */; };
 		36B77B561AD7FA7600C39472 /* SocaCoreOSX.h in Headers */ = {isa = PBXBuildFile; fileRef = 36B77B551AD7FA7600C39472 /* SocaCoreOSX.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		36B77B5C1AD7FA7600C39472 /* SocaCoreOSX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36B77B511AD7FA7600C39472 /* SocaCoreOSX.framework */; };
 		36B77B741AD7FA8900C39472 /* SocaCoreiOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 36B77B731AD7FA8900C39472 /* SocaCoreiOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -44,6 +45,7 @@
 		26D0B48316D2FA5A51963884 /* Pods-SocaCoreOSX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocaCoreOSX.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocaCoreOSX/Pods-SocaCoreOSX.debug.xcconfig"; sourceTree = "<group>"; };
 		2A6B2CF6149C5DFB0FFEA328 /* Pods-SocaCoreiOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocaCoreiOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocaCoreiOSTests/Pods-SocaCoreiOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2CB05EE10F71351B62222AEB /* Pods-SocaCoreOSXTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocaCoreOSXTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocaCoreOSXTests/Pods-SocaCoreOSXTests.debug.xcconfig"; sourceTree = "<group>"; };
+		363017491AE27D1E00A2BECF /* APNSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APNSpec.swift; sourceTree = "<group>"; };
 		36B77B511AD7FA7600C39472 /* SocaCoreOSX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SocaCoreOSX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		36B77B541AD7FA7600C39472 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		36B77B551AD7FA7600C39472 /* SocaCoreOSX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SocaCoreOSX.h; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 			children = (
 				36B77B7E1AD7FA8900C39472 /* Supporting Files */,
 				36BAE2391AD9461F00D9DB40 /* ConfigSpec.swift */,
+				363017491AE27D1E00A2BECF /* APNSpec.swift */,
 			);
 			path = SocaCoreTests;
 			sourceTree = "<group>";
@@ -621,6 +624,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3630174A1AE27D1E00A2BECF /* APNSpec.swift in Sources */,
 				36BAE23A1AD9461F00D9DB40 /* ConfigSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

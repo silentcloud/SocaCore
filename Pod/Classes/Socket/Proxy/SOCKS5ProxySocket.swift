@@ -7,8 +7,6 @@
 //
 
 import Foundation
-import CocoaLumberjack
-//import CocoaLumberjackSwift
 
 class SOCKS5ProxySocket : ProxySocket {
     override func openSocket() {

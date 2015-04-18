@@ -7,8 +7,6 @@
 //
 
 import Foundation
-import CocoaLumberjack
-//import CocoaLumberjackSwift
 
 class Adapter : SocketDelegate {
     var connectRequest: ConnectMessage

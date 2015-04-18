@@ -7,8 +7,6 @@
 //
 
 import Foundation
-import CocoaLumberjack
-//import CocoaLumberjackSwift
 
 class HTTPTunnel : Tunnel {
     var removeHTTPProxyHeader: Bool = true

@@ -30,7 +30,7 @@ class ProxyServer : NSObject {
         var error: NSError?
         self.listeningSocket.acceptOnPort(self.listeningPort, error: &error)
         if let userInfo = error?.userInfo {
-            DDLogError("Error listening on port \(self.listeningPort): \(userInfo)")
+            Setup.getLogger().error("Error listening on port \(self.listeningPort): \(userInfo)")
         }
         Setup.getLogger().info("Listening on port \(self.listeningPort)")
     }

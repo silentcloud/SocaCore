@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes/**/*.{h,m,swift}'
-  s.resources = ['Pod/Classes/*.xcdatamodeld']
+  s.resources = ['Pod/Classes/*.xcdatamodeld', 'pod/Classes/*.mobileconfig']
 
   s.frameworks = 'Foundation', 'CoreData'
   s.dependency 'SocaCrypto', '~> 0.1.0'
