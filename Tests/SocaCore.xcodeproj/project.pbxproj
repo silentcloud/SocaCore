@@ -40,7 +40,6 @@
 /* Begin PBXFileReference section */
 		0588A62EA919B43EE305CF68 /* Pods-SocaCoreiOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocaCoreiOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocaCoreiOSTests/Pods-SocaCoreiOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		0D91AB4FD84E54F9F87F00B5 /* SocaCore.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SocaCore.podspec; path = ../SocaCore.podspec; sourceTree = "<group>"; };
-		16445EA69D99782712A43CD1 /* Pods-SocaCore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocaCore.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocaCore/Pods-SocaCore.release.xcconfig"; sourceTree = "<group>"; };
 		1A1E5F3AFDFBAB5AD3B868B2 /* Pods-SocaCoreiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocaCoreiOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocaCoreiOS/Pods-SocaCoreiOS.debug.xcconfig"; sourceTree = "<group>"; };
 		26D0B48316D2FA5A51963884 /* Pods-SocaCoreOSX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocaCoreOSX.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocaCoreOSX/Pods-SocaCoreOSX.debug.xcconfig"; sourceTree = "<group>"; };
 		2A6B2CF6149C5DFB0FFEA328 /* Pods-SocaCoreiOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocaCoreiOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocaCoreiOSTests/Pods-SocaCoreiOSTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -69,7 +68,6 @@
 		9ED1E4CBE49C29DB802FFE49 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		AFE4F3D4005180457D5B6BF8 /* Pods_SocaCoreOSX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocaCoreOSX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B282EA6C6C8D8C9E5C742AC4 /* Pods-SocaCoreOSXTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocaCoreOSXTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocaCoreOSXTests/Pods-SocaCoreOSXTests.release.xcconfig"; sourceTree = "<group>"; };
-		D6E4821342EE1F886FC0053E /* Pods-SocaCore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocaCore.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocaCore/Pods-SocaCore.debug.xcconfig"; sourceTree = "<group>"; };
 		F527AAEF340A980B1E416796 /* Pods-SocaCoreiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocaCoreiOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocaCoreiOS/Pods-SocaCoreiOS.release.xcconfig"; sourceTree = "<group>"; };
 		FCBB959BF4041124BD0E0350 /* libPods-SocaCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SocaCore.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -218,8 +216,6 @@
 		EF5AA865CA2EDF489C4645F5 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				D6E4821342EE1F886FC0053E /* Pods-SocaCore.debug.xcconfig */,
-				16445EA69D99782712A43CD1 /* Pods-SocaCore.release.xcconfig */,
 				26D0B48316D2FA5A51963884 /* Pods-SocaCoreOSX.debug.xcconfig */,
 				77973861B45D913B4E1C17C7 /* Pods-SocaCoreOSX.release.xcconfig */,
 				2CB05EE10F71351B62222AEB /* Pods-SocaCoreOSXTests.debug.xcconfig */,
