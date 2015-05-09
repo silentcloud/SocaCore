@@ -1,9 +1,9 @@
 Pod::Spec.new do |s|
   s.name             = "SocaCore"
-  s.version          = "0.4.0"
+  s.version          = "0.4.1"
   s.summary          = "The core of Soca."
   s.description      = <<-DESC
-                       Things back up Soca.
+                       Things backing up Soca.
                        DESC
   s.homepage         = "https://github.com/zhuhaow/SocaCore"
   s.license          = 'MIT'

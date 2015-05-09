@@ -2,7 +2,7 @@
 
 [![CI Status](http://img.shields.io/travis/zhuhaow/SocaCore.svg?style=flat)](https://travis-ci.org/zhuhaow/SocaCore)
 
-Things back up Soca.
+Things backing up Soca.
 
 ## Usage
 See [Soca-iOS](https://github.com/zhuhaow/soca-ios).
