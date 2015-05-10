@@ -1,6 +1,0 @@
-framework module Pods_SocaCoreOSXTests {
-  umbrella header "Pods-SocaCoreOSXTests-umbrella.h"
-
-  export *
-  module * { export * }
-}
