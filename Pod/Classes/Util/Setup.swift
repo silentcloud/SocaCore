@@ -35,5 +35,11 @@ public class Setup {
             adapter.name = "Direct Adapter"
             adapter.managedObjectContext!.MR_saveToPersistentStoreAndWait()
         }
+        
+        if BlackHoleAdapterConfig.MR_countOfEntities() == 0 {
+            let adapter = BlackHoleAdapterConfig.MR_createEntity() as! BlackHoleAdapterConfig
+            adapter.name = "Black Hole Adapter"
+            adapter.managedObjectContext!.MR_saveToPersistentStoreAndWait()
+        }
     }
 }
