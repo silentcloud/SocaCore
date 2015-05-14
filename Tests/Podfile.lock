@@ -4,8 +4,8 @@ PODS:
   - MagicalRecord/Core (2.2)
   - Nimble (0.4.2)
   - Quick (0.3.1)
-  - SocaCore (0.3.0):
-    - MagicalRecord
+  - SocaCore (0.4.2):
+    - MagicalRecord (~> 2.2.0)
     - SocaCrypto (~> 0.1.0)
     - XCGLogger (~> 2.0.0)
   - SocaCrypto (0.1.1)
@@ -33,7 +33,7 @@ SPEC CHECKSUMS:
   MagicalRecord: f8a56bb87ab6552f20c4bb8681a1958a197ea3cd
   Nimble: 49b7a7da8919f42823d37c6d68cc6d15a7009f32
   Quick: 824572d3d198d51e52cf4aa722cebf7e59952a35
-  SocaCore: 917b638921eba56df81ae849a366045abdb2b3fc
+  SocaCore: abffa746f28ae6dab9e443ebf60c2db2e30fc3ae
   SocaCrypto: dc092cae2ae0031133726325a9243f0028d63c36
   XCGLogger: 90570901ddf86d5479672d61a1b0a639235b851a
 
