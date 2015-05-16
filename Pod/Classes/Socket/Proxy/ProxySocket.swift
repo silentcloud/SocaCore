@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ProxySocket : SocketDelegate {
+class ProxySocket : SocketDelegate, SocketProtocol {
     enum ProxySocketReadTag: Int {
         case SOCKS_OPEN = 1000, SOCKS_CONNECT_INIT, SOCKS_CONNECT_IPv4, SOCKS_CONNECT_IPv6, SOCKS_CONNECT_DOMAIN_LENGTH, SOCKS_CONNECT_DOMAIN, SOCKS_CONNECT_PORT, HTTP_HEADER, HTTP_CONTENT
     }
@@ -140,17 +140,18 @@ class ProxySocket : SocketDelegate {
     }
     
     // MARK: delegation methods for SocketDelegate
-    func socketDidDisconnect(socket: Socket, withError err: NSError?) {
+    func socket(socket: Socket, didDisconnectWithError: NSError?) {
         connectionDidFail()
     }
     
-    func socketDidConnectToHost(host: String, onPort: Int) {}
+    func socket(socket: Socket, didConnectToHost: String, onPort: Int) {
+    }
     
-    func socketDidReadData(data: NSData, withTag tag: Int) {
+    func socket(socket: Socket, didReadData data: NSData, withTag tag: Int) {
         didReadData(data, withTag: tag)
     }
     
-    func socketDidWriteDataWithTag(tag: Int) {
+    func socket(socket: Socket, didWriteDataWithTag tag: Int) {
         didWriteDataWithTag(tag)
     }
 }

@@ -35,7 +35,7 @@ public class Profile {
     
     public func stop() {
         for server in servers {
-            server.disconnect()
+            server.stopServer()
         }
         running = false
     }

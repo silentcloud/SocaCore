@@ -99,19 +99,19 @@ class Adapter : SocketDelegate {
     }
     
     // MARK: delegation methods for Socket
-    func socketDidDisconnect(socket: Socket, withError err: NSError?) {
+    func socket(socket: Socket, didDisconnectWithError: NSError?) {
         connectionDidFail()
     }
     
-    func socketDidConnectToHost(host: String, onPort: Int) {
+    func socket(socket: Socket, didConnectToHost: String, onPort: Int) {
         connectionEstablished()
     }
     
-    func socketDidReadData(data: NSData, withTag tag: Int) {
+    func socket(socket: Socket, didReadData data: NSData, withTag tag: Int) {
         didReadData(data, withTag: tag)
     }
     
-    func socketDidWriteDataWithTag(tag: Int) {
+    func socket(socket: Socket, didWriteDataWithTag tag: Int) {
         didWriteDataWithTag(tag)
     }
 }
