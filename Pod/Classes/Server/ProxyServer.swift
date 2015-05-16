@@ -69,7 +69,7 @@ class ProxyServer : NSObject {
         }
     }
     
-    func matchRule(request: ConnectMessage) -> AdapterFactory {
+    func matchRule(request: ConnectRequest) -> AdapterFactory {
         return ruleManager.match(request)
     }
     
