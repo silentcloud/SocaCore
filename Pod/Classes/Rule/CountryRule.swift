@@ -20,7 +20,7 @@ class CountryRule : Rule {
         super.init()
     }
     
-    override func match(var request :ConnectMessage) -> AdapterFactory? {
+    override func match(var request :ConnectRequest) -> AdapterFactory? {
         if (request.country != countryCode) != match {
             return adapterFactory
         }

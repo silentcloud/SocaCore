@@ -11,7 +11,7 @@ import Foundation
 protocol RuleProtocol : class {
     var name: String? { get set }
     
-    func match(request: ConnectMessage) -> AdapterFactory?
+    func match(request: ConnectRequest) -> AdapterFactory?
 }
 
 class Rule : RuleProtocol {
@@ -21,7 +21,7 @@ class Rule : RuleProtocol {
         name = nil
     }
     
-    func match(request: ConnectMessage) -> AdapterFactory? {
+    func match(request: ConnectRequest) -> AdapterFactory? {
         return nil
     }
 }
@@ -34,7 +34,7 @@ class AllRule : Rule {
         super.init()
     }
 
-    override func match(request: ConnectMessage) -> AdapterFactory? {
+    override func match(request: ConnectRequest) -> AdapterFactory? {
         return adapterFactory
     }
 }

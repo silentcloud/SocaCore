@@ -20,7 +20,7 @@ class RuleManager {
         }
     }
     
-    func match(request: ConnectMessage) -> AdapterFactory! {
+    func match(request: ConnectRequest) -> AdapterFactory! {
         for rule in rules {
             if let adapterFactory = rule.match(request) {
                 return adapterFactory
