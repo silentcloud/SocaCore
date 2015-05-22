@@ -21,6 +21,9 @@
     <entity name="HTTPProxyConfig" representedClassName="HTTPProxyConfig" parentEntity="ProxyConfig" syncable="YES"/>
     <entity name="ProfileConfig" representedClassName="ProfileConfig" syncable="YES">
         <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="pacFilePath" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pacServerEnabled" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="pacServerPort" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <relationship name="proxies" toMany="YES" deletionRule="Cascade" destinationEntity="ProxyConfig" inverseName="profile" inverseEntity="ProxyConfig" syncable="YES"/>
     </entity>
     <entity name="ProxyConfig" representedClassName="ProxyConfig" isAbstract="YES" syncable="YES">
@@ -50,12 +53,13 @@
         <element name="AdapterConfig" positionX="-686" positionY="138" width="128" height="73"/>
         <element name="AllRuleConfig" positionX="-585" positionY="545" width="128" height="45"/>
         <element name="AuthenticationServerAdapterConfig" positionX="43" positionY="119" width="128" height="88"/>
+        <element name="BlackHoleAdapterConfig" positionX="-477" positionY="270" width="128" height="45"/>
         <element name="CountryRuleConfig" positionX="-279" positionY="378" width="128" height="73"/>
         <element name="DirectAdapterConfig" positionX="-477" positionY="270" width="128" height="45"/>
         <element name="DirectRuleConfig" positionX="-468" positionY="279" width="128" height="45"/>
         <element name="HTTPAdapterConfig" positionX="61" positionY="288" width="128" height="45"/>
         <element name="HTTPProxyConfig" positionX="-459" positionY="288" width="128" height="45"/>
-        <element name="ProfileConfig" positionX="-477" positionY="270" width="128" height="73"/>
+        <element name="ProfileConfig" positionX="-477" positionY="270" width="128" height="120"/>
         <element name="ProxyConfig" positionX="-461" positionY="336" width="128" height="103"/>
         <element name="RuleConfig" positionX="-360" positionY="545" width="128" height="90"/>
         <element name="ServerAdapterConfig" positionX="-414" positionY="135" width="128" height="73"/>
@@ -63,6 +67,5 @@
         <element name="SHTTPAdapterConfig" positionX="52" positionY="414" width="128" height="45"/>
         <element name="SOCKS5AdapterConfig" positionX="-315" positionY="270" width="128" height="45"/>
         <element name="SOCKS5ProxyConfig" positionX="-450" positionY="297" width="128" height="45"/>
-        <element name="BlackHoleAdapterConfig" positionX="-477" positionY="270" width="128" height="45"/>
     </elements>
 </model>

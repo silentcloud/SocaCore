@@ -14,6 +14,10 @@ public class ProfileConfig: NSManagedObject {
 
     @NSManaged public var name: String
     @NSManaged public var proxies: NSSet
+    @NSManaged public var pacServerPort: Int
+    @NSManaged public var pacFilePath: String!
+    @NSManaged public var pacServerEnabled: Bool
+    
     
     func proxyArray() -> [ProxyConfig] {
         return proxies.allObjects as! [ProxyConfig]

@@ -46,7 +46,6 @@ public class ProfileManager: NSObject, NSFetchedResultsControllerDelegate {
     }
     
     func startProfileAtIndex(indexPath: NSIndexPath) {
-        fetchedResultsController.managedObjectContext 
         stopProfile()
         currentProfile = self[indexPath].profile()
         currentProfile!.start()

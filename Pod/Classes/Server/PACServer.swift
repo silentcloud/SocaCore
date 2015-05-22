@@ -37,8 +37,8 @@ class PACServer : BaseServer, SocketDelegate {
     
     func sendPACFileToSocket(socket: Socket) {
         socket.writeData("HTTP/1.1 200 OK\r\n".toUTF8Data()!, withTag: headerTag)
-        socket.writeData("Content-Length: \(fileData!.length)".toUTF8Data()!, withTag: headerTag)
-        socket.writeData("Content-Type: application/x-ns-proxy-autoconfig".toUTF8Data()!, withTag: headerTag)
+        socket.writeData("Content-Length: \(fileData!.length)\r\n".toUTF8Data()!, withTag: headerTag)
+        socket.writeData("Content-Type: application/x-ns-proxy-autoconfig\r\n\r\n".toUTF8Data()!, withTag: headerTag)
         socket.writeData(fileData!, withTag: contentTag)
     }
     

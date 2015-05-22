@@ -15,6 +15,10 @@ class BaseServer : NSObject, GCDAsyncSocketDelegate {
     var listeningQueue: dispatch_queue_t = dispatch_queue_create("com.Soca.Server.listenQueue", DISPATCH_QUEUE_SERIAL)
     var socketModifyQueue: dispatch_queue_t = dispatch_queue_create("com.Soca.Server.socketModifyQueue", DISPATCH_QUEUE_SERIAL)
     
+    var running: Bool {
+        return listeningSocket != nil && !listeningSocket.isDisconnected
+    }
+    
     init(listenOnPort port: Int) {
         self.listeningPort = port
         
@@ -28,8 +32,6 @@ class BaseServer : NSObject, GCDAsyncSocketDelegate {
         listeningSocket.acceptOnPort(UInt16(self.listeningPort), error: &error)
         return error
     }
-    
-    func didAcceptNewSocket(newSocket: Socket, withSocket socket: GCDAsyncSocket) {}
     
     func stopServer() {
         listeningSocket?.disconnect()
@@ -67,6 +69,8 @@ class BaseServer : NSObject, GCDAsyncSocketDelegate {
     }
     
     // MARK: Delegate method for server
+    func didAcceptNewSocket(newSocket: Socket, withSocket socket: GCDAsyncSocket) {}
+    
     func socketDidDisconnect(socket: SocketProtocol) {
         removeSocket(socket)
     }

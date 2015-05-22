@@ -22,6 +22,14 @@ public class Profile {
         }
     }()
     
+    lazy var pacServer: PACServer? = {
+        [unowned self] in
+        if self.config.pacServerPort == 0 || self.config.pacFilePath == nil {
+            return nil
+        }
+        return PACServer(listenOnPort: self.config.pacServerPort, withPACFile: self.config.pacFilePath)
+    }()
+    
     init(profileConfig: ProfileConfig) {
         self.config = profileConfig
     }
@@ -30,6 +38,9 @@ public class Profile {
         for server in servers {
             server.startProxy()
         }
+        if config.pacServerEnabled {
+            pacServer?.startProxy()
+        }
         running = true
     }
     
@@ -37,6 +48,7 @@ public class Profile {
         for server in servers {
             server.stopServer()
         }
+        pacServer?.stopServer()
         running = false
     }
 }
