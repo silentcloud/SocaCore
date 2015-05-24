@@ -1,0 +1,36 @@
+{
+    "pac_server": {
+        "port": 7070,
+        "pac_file": "demo.pac"
+    },
+    "adapters": [
+        {
+            "id": "adapter1",
+            "type": "SHTTP",
+            "host": "myproxy.com",
+            "port": 7033,
+            "username": "your_username",
+            "password": "your_password"
+        }
+    ],
+    "proxies": [
+        {
+            "type": "HTTP",
+            "port": 9055,
+            "rules": [
+                {
+                    "type": "COUNTRY",
+                    "adapter": "DIRECT",
+                    "params": {
+                        "country": "CN",
+                        "apply": true 
+                    }
+                },
+                {
+                    "type": "ALL",
+                    "adapter": "adapter1"
+                }
+            ]
+        }
+    ]
+}

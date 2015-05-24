@@ -13,10 +13,10 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes/**/*.{h,m,swift}'
-  s.resources = ['Pod/Classes/*.xcdatamodeld', 'pod/Classes/*.mobileconfig', 'pod/Classes/GeoIP.dat']
+  s.resources = [ 'pod/Classes/*.mobileconfig', 'pod/Classes/GeoIP.dat']
 
-  s.frameworks = 'Foundation', 'CoreData'
+  s.frameworks = 'Foundation'
   s.dependency 'SocaCrypto', '~> 0.1.0'
   s.dependency 'XCGLogger', '~> 2.0.0'
-  s.dependency 'MagicalRecord', '~> 2.2.0'
+  s.dependency 'SwiftyJSON', '~> 2.2.0'
 end
