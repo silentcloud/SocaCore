@@ -14,10 +14,12 @@ import Foundation
 public class Profile {
     let pacServer: PACServer?
     let proxyServers: [ProxyServer]
+    public let url: NSURL
     
-    init(proxyServers: [ProxyServer], pacServer: PACServer? = nil) {
+    init(proxyServers: [ProxyServer], pacServer: PACServer? = nil, url: NSURL) {
         self.pacServer = pacServer
         self.proxyServers = proxyServers
+        self.url = url
     }
     
     public func start() {

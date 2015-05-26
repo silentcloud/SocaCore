@@ -17,7 +17,7 @@ public struct ConfigParser {
             let adapters = _parseAdapters(configJSON["adapters"])
             let pacServer = _parsePACServer(configJSON["pac_server"], basePath: basePath)
             let servers = _parseProxies(configJSON["proxies"], adapters: adapters)
-            return Profile(proxyServers: servers, pacServer: pacServer)
+            return Profile(proxyServers: servers, pacServer: pacServer, url: configFilePath)
         } else {
             return nil
         }
