@@ -10,18 +10,16 @@ import Foundation
 import Quick
 import Nimble
 import SocaCore
-import MagicalRecord
-import CoreData
 
 class ConfigSpec: QuickSpec {
     override func spec() {
-        describe("MagicalRecord") {
-            it("should be able to set up CoreData") {
-                let location = NSBundle(forClass: DirectAdapterConfig.self)
-                let model = NSManagedObjectModel.mergedModelFromBundles([location])!
-                NSManagedObjectModel.MR_setDefaultManagedObjectModel(model)
-                MagicalRecord.setupAutoMigratingCoreDataStack()
-                expect(DirectAdapterConfig.MR_countOfEntities()).toNot(raiseException())
+        describe("ConfigParse") {
+            it("should be able to load config file from json") {
+                let bundle = NSBundle(forClass: ConfigSpec.self)
+                let configURL = bundle.URLForResource("config_example", withExtension: "json")!
+                let profile = ConfigParser.loadProfile(configURL)
+//                expect(profile!.pacServer).toNot(beNil())
+//                expect(profile).to(equal(1))
             }
         }
     }

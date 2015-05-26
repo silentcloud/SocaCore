@@ -18,6 +18,11 @@ class ShadowsocksAdapterFacotry: ServerAdapterFactory {
         super.init(host: host, port: port)
     }
     
+    convenience init(host: String, port: Int, password: String, method: ShadowsocksAdapter.EncryptMethod) {
+        let key = ShadowsocksEncryptHelper.getKey(password, methodType: method)
+        self.init(host: host, port: port, key: key, method: method)
+    }
+    
     override func canHandle(request: ConnectRequest) -> Bool {
         return true
     }

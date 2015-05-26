@@ -12,43 +12,27 @@ import Foundation
  *  Profile holds the set of proxies with specific rules you would like to run simutaneouly.
 */
 public class Profile {
-    public let config: ProfileConfig
-    public var running = false
+    let pacServer: PACServer?
+    let proxyServers: [ProxyServer]
+    public let url: NSURL
     
-    lazy var servers: [ProxyServer] = {
-        [unowned self] in
-        self.config.proxies.allObjects.map() {
-            ($0 as! ProxyConfig).proxyServer()
-        }
-    }()
-    
-    lazy var pacServer: PACServer? = {
-        [unowned self] in
-        if self.config.pacServerPort == 0 || self.config.pacFilePath == nil {
-            return nil
-        }
-        return PACServer(listenOnPort: self.config.pacServerPort, withPACFile: self.config.pacFilePath)
-    }()
-    
-    init(profileConfig: ProfileConfig) {
-        self.config = profileConfig
+    init(proxyServers: [ProxyServer], pacServer: PACServer? = nil, url: NSURL) {
+        self.pacServer = pacServer
+        self.proxyServers = proxyServers
+        self.url = url
     }
     
     public func start() {
-        for server in servers {
+        for server in proxyServers {
             server.startProxy()
         }
-        if config.pacServerEnabled {
-            pacServer?.startProxy()
-        }
-        running = true
+        pacServer?.startProxy()
     }
     
     public func stop() {
-        for server in servers {
+        for server in proxyServers {
             server.stopServer()
         }
         pacServer?.stopServer()
-        running = false
     }
 }
