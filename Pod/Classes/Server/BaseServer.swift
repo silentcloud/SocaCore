@@ -50,14 +50,14 @@ class BaseServer : NSObject, GCDAsyncSocketDelegate {
     }
     
     func addSocket(socket: SocketProtocol) {
-        dispatch_async(socketModifyQueue) {
+        dispatch_sync(socketModifyQueue) {
             [unowned self] in
             self.activeSockets.append(socket)
         }
     }
     
     func removeSocket(socket: SocketProtocol) {
-        dispatch_async(socketModifyQueue) {
+        dispatch_sync(socketModifyQueue) {
             [unowned self] in
             for index in (0..<self.activeSockets.count) {
                 if self.activeSockets[index] === socket {
