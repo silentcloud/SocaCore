@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes/**/*.{h,m,swift}'
-  s.resources = [ 'pod/Classes/*.mobileconfig', 'pod/Classes/GeoIP.dat']
+  s.resources = [ 'Pod/Classes/*.mobileconfig', 'Pod/Classes/GeoIP.dat', 'Pod/Classes/Config/config.json.example']
 
   s.frameworks = 'Foundation'
   s.dependency 'SocaCrypto', '~> 0.1.0'
