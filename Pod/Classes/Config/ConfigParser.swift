@@ -91,6 +91,8 @@ public struct ConfigParser {
                     let country = ruleJSON["params"]["country"].stringValue
                     let match = ruleJSON["params"]["apply"].boolValue
                     rules.append(CountryRule(countryCode: country, match: match, adapterFactory: adapterFactory))
+                case "DNSFAIL":
+                    rules.append(DNSFailRule(adapterFactory: adapterFactory))
                 default:
                     break
                 }
