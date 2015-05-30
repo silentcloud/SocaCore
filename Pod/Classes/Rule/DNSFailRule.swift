@@ -10,7 +10,7 @@ import Foundation
 
 class DNSFailRule : AllRule {
     override func match(request: ConnectRequest) -> AdapterFactory? {
-        if request.IP == "" {
+        if request.IP == nil || request.IP == "" {
             return adapterFactory
         }
         return nil

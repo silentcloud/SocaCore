@@ -22,6 +22,7 @@ class ProxySocket : SocketDelegate, SocketProtocol {
     var connectRequest: ConnectRequest!
     var tunnel: Tunnel?
     let socket: Socket
+    let config: Config
     
     /**
     Return false when and only when socket and tunnel?.adapter.socket are both disconnected.
@@ -39,15 +40,16 @@ class ProxySocket : SocketDelegate, SocketProtocol {
     
     private var removeToken: dispatch_once_t = 0
 
-    init(socket: Socket, proxy: ProxyServer) {
+    init(socket: Socket, proxy: ProxyServer, withConfig config: Config) {
         self.proxy = proxy
         self.socket = socket
+        self.config = config
         self.socket.socketDelegate = self
     }
     
-    convenience init(socket: GCDAsyncSocket, proxy: ProxyServer) {
+    convenience init(socket: GCDAsyncSocket, proxy: ProxyServer, withConfig config: Config) {
         let socket = Socket(socket: socket)
-        self.init(socket: socket, proxy: proxy)
+        self.init(socket: socket, proxy: proxy, withConfig: config)
     }
     
     // MARK: method to implement in subclass for specific type of proxy.

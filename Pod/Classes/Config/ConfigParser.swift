@@ -16,11 +16,23 @@ public struct ConfigParser {
             let configJSON = JSON(data: data)
             let adapters = _parseAdapters(configJSON["adapters"])
             let pacServer = _parsePACServer(configJSON["pac_server"], basePath: basePath)
-            let servers = _parseProxies(configJSON["proxies"], adapters: adapters)
-            return Profile(proxyServers: servers, pacServer: pacServer, url: configFilePath)
+            let config = _parseConfig(configJSON)
+            let servers = _parseProxies(configJSON["proxies"], adapters: adapters, config: config)
+            return Profile(proxyServers: servers, pacServer: pacServer, withConfig: config, fromURL: configFilePath)
         } else {
             return nil
         }
+    }
+    
+    private static func _parseConfig(configJSON: JSON) -> Config {
+        let config = Config()
+        if let timeout = configJSON["dns_timeout"].double {
+            config.dnsResolver = DNSResolver(timeout: timeout)
+        }
+        if let connectWithIP = configJSON["direct_connect_with_resolved_ip"].bool {
+            config.directConnectWithResolvedIP = connectWithIP
+        }
+        return config
     }
     
     private static func _parseAdapters(configJSON: JSON) -> [String: AdapterFactory] {
@@ -62,16 +74,16 @@ public struct ConfigParser {
         return nil
     }
     
-    private static func _parseProxies(configJSON: JSON, adapters: [String: AdapterFactory]) -> [ProxyServer] {
+    private static func _parseProxies(configJSON: JSON, adapters: [String: AdapterFactory], config: Config) -> [ProxyServer] {
         var servers = [ProxyServer]()
         for (index, json) in configJSON {
             let port = json["port"].intValue
             let ruleManager = _parseRules(json["rules"], adapters: adapters)
             switch json["type"].stringValue.uppercaseString {
             case "HTTP":
-                servers.append(HTTPProxyServer(listenOnPort: port, withRuleManager: ruleManager))
+                servers.append(HTTPProxyServer(listenOnPort: port, withRuleManager: ruleManager, andConfig: config))
             case "SOCKS5":
-                servers.append(SOCKS5ProxyServer(listenOnPort: port, withRuleManager: ruleManager))
+                servers.append(SOCKS5ProxyServer(listenOnPort: port, withRuleManager: ruleManager, andConfig: config))
             default:
                 break
             }

@@ -64,12 +64,12 @@ class HTTPProxySocket : ProxySocket {
             let httpRequest = HTTPRequest(headerData: data)
             switch HTTPMethod(rawValue: httpRequest.method)! {
             case .CONNECT:
-                var request = ConnectRequest(host: httpRequest.host, port: httpRequest.port, method: .HTTP_CONNECT)
+                var request = ConnectRequest(host: httpRequest.host, port: httpRequest.port, method: .HTTP_CONNECT, withConfig: config)
                 request.httpRequest = httpRequest
                 connectRequest = request
                 readyToConnectToRemote()
             default:
-                var request = ConnectRequest(host: httpRequest.host, port: httpRequest.port, method: .HTTP_REQUEST)
+                var request = ConnectRequest(host: httpRequest.host, port: httpRequest.port, method: .HTTP_REQUEST, withConfig: config)
                 request.httpRequest = httpRequest
                 connectRequest = request
                 status = HTTPStatus(contentLength: httpRequest.contentLength)

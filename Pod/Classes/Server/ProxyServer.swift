@@ -13,9 +13,11 @@ import Foundation
 */
 class ProxyServer : BaseServer {
     let ruleManager: RuleManager
+    let config: Config
 
-    init(listenOnPort port: Int, withRuleManager ruleManager: RuleManager) {
+    init(listenOnPort port: Int, withRuleManager ruleManager: RuleManager, andConfig config: Config) {
         self.ruleManager = ruleManager
+        self.config = config
     
         super.init(listenOnPort: port)
     }
@@ -30,7 +32,7 @@ class ProxyServer : BaseServer {
 */
 class SOCKS5ProxyServer : ProxyServer {
     override func didAcceptNewSocket(newSocket: Socket, withSocket socket: GCDAsyncSocket) {
-        let proxySocket = SOCKS5ProxySocket(socket: newSocket, proxy:self)
+        let proxySocket = SOCKS5ProxySocket(socket: newSocket, proxy:self, withConfig: config)
         addSocket(proxySocket)
         proxySocket.openSocket()
     }
@@ -41,7 +43,7 @@ class SOCKS5ProxyServer : ProxyServer {
 */
 class HTTPProxyServer : ProxyServer {
     override func didAcceptNewSocket(newSocket: Socket, withSocket socket: GCDAsyncSocket) {
-        let proxySocket = HTTPProxySocket(socket: newSocket, proxy: self)
+        let proxySocket = HTTPProxySocket(socket: newSocket, proxy: self, withConfig: config)
         addSocket(proxySocket)
         proxySocket.openSocket()
     }

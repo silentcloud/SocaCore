@@ -12,6 +12,6 @@ class ConnectRequest : ConnectMessage {
     var httpRequest: HTTPRequest?
     
     func getResponse() -> ConnectResponse {
-        return ConnectResponse(host: host, port: port, method: method)
+        return ConnectResponse(host: host, port: port, method: method, withConfig: config)
     }
 }

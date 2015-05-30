@@ -16,28 +16,33 @@ class ConnectMessage {
     let host: String
     let port: Int
     let method: Method
+    let config: Config
    
-    lazy var IP: String = {
+    lazy var IP: String? = {
         [unowned self] in
         return self._getIP()
     }()
     
     lazy var country: String = {
         [unowned self] in
-        Utils.GeoIPLookup.Lookup(self.IP)
+        if let ip = self.IP {
+            return Utils.GeoIPLookup.Lookup(ip)
+        }
+        return ""
     }()
     
-    init(host: String, port: Int, method: Method) {
+    init(host: String, port: Int, method: Method, withConfig config: Config) {
         self.host = host
         self.port = port
         self.method = method
+        self.config = config
     }
     
-    private func _getIP() -> String {
+    private func _getIP() -> String?{
         if isIP() {
             return host
         } else {
-            return Utils.DNS.resolve(host)
+            return config.dnsResolver.resolve(host)
         }
     }
     

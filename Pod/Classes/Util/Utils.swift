@@ -20,17 +20,48 @@ struct Utils {
             case A, AAAA, UNSPEC
         }
         
-        static func resolve(name: String, type: QueryType = .UNSPEC) -> String {
-            let remoteHostEnt = gethostbyname2((name as NSString).UTF8String, AF_INET)
+        static let timeoutQueue = dispatch_queue_create("com.zhuhao.osx.Soca.dnsTimeoutQueue", DISPATCH_QUEUE_CONCURRENT)
+        
+//        static func resolve(name: String, type: QueryType = .UNSPEC) -> String {
+//            let remoteHostEnt = gethostbyname2((name as NSString).UTF8String, AF_INET)
+//            
+//            if remoteHostEnt == nil {
+//                return ""
+//            }
+//            
+//            let remoteAddr = UnsafeMutablePointer<in_addr>(remoteHostEnt.memory.h_addr_list[0]).memory
+//            
+//            let addr = inet_ntoa(remoteAddr)
+//            return NSString(UTF8String: addr)! as String
+//        }
+        
+        static func resolve(name: String, timeout: Double = -1) -> String? {
+            let host = CFHostCreateWithName(kCFAllocatorDefault, name).takeRetainedValue()
             
-            if remoteHostEnt == nil {
-                return ""
+            if timeout > 0 {
+                let time = dispatch_time(DISPATCH_TIME_NOW, Int64(timeout * Double(NSEC_PER_SEC)))
+                dispatch_after(time, timeoutQueue) {
+                    CFHostCancelInfoResolution(host, .Addresses)
+                }
             }
             
-            let remoteAddr = UnsafeMutablePointer<in_addr>(remoteHostEnt.memory.h_addr_list[0]).memory
+            if CFHostStartInfoResolution(host, .Addresses, nil) != 0 {
+                if let addres = CFHostGetAddressing(host, nil) {
+                    let addresses = addres.takeUnretainedValue() as NSArray
+                    let address = addresses[0] as! NSData
+                    let addr = UnsafePointer<sockaddr_in>(address.bytes).memory
+                    let addr_in = UnsafeMutablePointer<sockaddr_in>.alloc(1)
+                    address.getBytes(addr_in, length: address.length)
+                    let addr_re = addr_in.memory
+                    let ip = NSString(UTF8String: inet_ntoa(addr_re.sin_addr))! as String
+                    addr_in.destroy()
+                    addr_in.dealloc(1)
+                    return ip
+                }
+            }
+            Setup.getLogger().error("DNS look up failed for domain \(name).")
+            return nil
             
-            let addr = inet_ntoa(remoteAddr)
-            return NSString(UTF8String: addr)! as String
         }
     }
     

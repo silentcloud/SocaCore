@@ -59,7 +59,7 @@ class SOCKS5ProxySocket : ProxySocket {
             var rawPort :UInt16 = 0
             data.getBytes(&rawPort, length: sizeof(UInt16))
             destinationPort = Int(NSSwapBigShortToHost(rawPort))
-            connectRequest = ConnectRequest(host: destinationHost!, port: destinationPort!, method: .SOCKS5)
+            connectRequest = ConnectRequest(host: destinationHost!, port: destinationPort!, method: .SOCKS5, withConfig: config)
             didRecieveRequest()
             readyToConnectToRemote()
         case SocketTag.Forward:

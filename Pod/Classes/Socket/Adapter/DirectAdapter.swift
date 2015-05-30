@@ -10,11 +10,15 @@ import Foundation
 
 class DirectAdapter : Adapter {
     override func connectToRemote() {
-        if connectRequest.IP != "" {
-            socket.connectToHost(connectRequest.IP, withPort: connectRequest.port)
+        if connectRequest.config.directConnectWithResolvedIP {
+            if connectRequest.IP != nil {
+                socket.connectToHost(connectRequest.IP!, withPort: connectRequest.port)
+            } else {
+                Setup.getLogger().error("DNS look up failed for direct connect to \(self.connectRequest.host), disconnect now")
+                connectionDidFail()
+            }
         } else {
-            Setup.getLogger().error("DNS look up failed for direct connect to \(self.connectRequest.host), disconnect now")
-            connectionDidFail()
+            socket.connectToHost(connectRequest.host, withPort: connectRequest.port)
         }
     }
     
