@@ -16,7 +16,4 @@ Pod::Spec.new do |s|
   s.resources = ['Pod/Classes/*.xcdatamodeld', 'pod/Classes/*.mobileconfig', 'pod/Classes/GeoIP.dat']
 
   s.frameworks = 'Foundation', 'CoreData'
-  s.dependency 'SocaCrypto', '~> 0.1.0'
-  s.dependency 'XCGLogger', '~> 6.0.0'
-  s.dependency 'MagicalRecord', '~> 2.2.0'
 end
