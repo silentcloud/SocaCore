@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.homepage         = "https://github.com/zhuhaow/SocaCore"
   s.license          = 'MIT'
   s.author           = { "Zhuhao Wang" => "zhuhaow@gmail.com" }
-  s.source           = { :git => "https://github.com/zhuhaow/SocaCore.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/silentcloud/SocaCore.git", :tag => s.version.to_s }
 
   s.requires_arc = true
 
@@ -17,6 +17,6 @@ Pod::Spec.new do |s|
 
   s.frameworks = 'Foundation', 'CoreData'
   s.dependency 'SocaCrypto', '~> 0.1.0'
-  s.dependency 'XCGLogger', '~> 2.0.0'
+  s.dependency 'XCGLogger', '~> 6.0.0'
   s.dependency 'MagicalRecord', '~> 2.2.0'
 end
